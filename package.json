@@ -1,0 +1,24 @@
+{
+  "name": "Blog",
+  "version": "1.0.0",
+  "description": "Blog to post articles",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \n Error:no test\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Prasanth",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "express": "~4.13.4",
+    "mongoose": "~4.4.14",
+    "body-parser": "~1.15.0",
+    "path": "~0.12.7",
+    "fs": "0.0.2",
+    "passport": "~0.3.2",
+    "passport-local": "~1.0.0",
+    "multer": "~1.1.0",
+    "crypto": "0.0.3",
+    "lodash": "~4.11.1"
+  }
+}

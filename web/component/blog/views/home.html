@@ -1,0 +1,126 @@
+<!--********************************* Home Page Template ***********************************-->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<h1>BlogHub</h1>
+		<div class="divMail"><span class="glyphicon glyphicon-user" ng-bind="home.mail"></span> </div>
+	</div>
+</nav>
+<div class="contents">
+	<div class="row">
+		<div class="col-sm-2 col-lg-2">
+			<div class="divSideLinks">
+				<div ng-show="home.logout">
+					<h4><a href="#/login">Login</a></h4>
+					<hr>
+					<h4><a href="#/register">Register</a></h4>
+					<hr>
+				</div>
+				<h4><a href="#/home">Home</a></h4>
+				<hr>
+				<div ng-show="home.login">
+					<h4><a href="#/home/{{home.userId}}">My Posts</a></h4>
+					<hr>
+					<h4><a href="#/new">New Post</a></h4>
+					<hr>
+					<h4><a href="#/home" ng-click="home.logoff()">Logout</a></h4>
+					<hr>
+				</div>
+			</div>
+			<div class="divSearch">
+				<label>Search</label>
+				<input type="text" placeholder=" Search for Titles ..." ng-model="home.search">
+				<hr>
+			</div>
+			<div>
+				<div class="panel panel-danger ">
+					<div class="panel-heading">Most Viewed</div>
+					<div class="panel-body panelView">
+						<ul class="list-group">
+							<li class="list-group-item" ng-repeat="view in home.topViews"><a href="#/articles/{{view._id}}">{{view.title}}</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="panel panel-success">
+					<!-- Default panel contents -->
+					<div class="panel-heading">Recently Posted</div>
+					<div class="panel-body panelComment">
+						<!-- List group -->
+						<ul class="list-group">
+							<li class="list-group-item" ng-repeat="view in home.recent"><a href="#/articles/{{view._id}}">{{view.title}}</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-10 col-lg-10">
+			<div>
+				<uib-pager total-items="home.totalItems" ng-model="home.currentPage" ng-click="home.getNext()"></uib-pager>
+			</div>
+			<div class="divArticleLst leftAlign" ng-repeat="article in home.Articles |filter:{title: home.search}">
+				<div class="homeArtHead">
+					<a href="#/articles/{{article._id}}">
+						<h2>{{article.title}}</h2>
+					</a>
+				</div>
+				<div class="homeArtInfo">
+					<span><i>Posted by </i> <strong>{{article.user.email}} </strong></span><span class="spanComment"> Comments</span> <span class="badge">{{article.commentCount}}</span><span class="spanView">
+					 Views </span><span class="badge">{{article.viewCount}}</span>
+					<br>
+				</div>
+				<br>
+				<div class="homeArtDiscription">
+					<i>Discription: </i>
+					<span ng-bind="article.discription">
+					</span>
+				</div>
+				<br>
+				<div class="homeArtOperation" ng-show="home.showEdit">
+					<button type="button"><span class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#editModal" ng-click="home.editArticle(article)"></span></button>
+					<button type="button" ng-click="home.deleteArticle(article._id)"><span class="glyphicon glyphicon-trash"></span></button>
+				</div>
+			</div>
+			<div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Modal Edit-->
+<div id="editModal" class="modal modal-lg fade" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Edit</h4>
+			</div>
+			<div class="modal-body">
+				<form role="form" name="frmPost" ng-submit="">
+					<div class="form-group">
+						<label for="Title">Title:</label>
+						<input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" ng-model="home.editPost.title" required>
+					</div>
+					<div class="form-group">
+						<label for="discription">Short Discription:</label>
+						<input type="text" class="form-control" id="discription" name="discription" placeholder="Enter Text here" ng-model="home.editPost.discription" required>
+					</div>
+					<div class="form-group">
+						<label for="content">Content:</label>
+						<textarea class="form-control" rows="5" id="content" name="content" ng-model="home.editPost.content" placeholder="Enter the detailed contents here"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="tag">Tags:</label>
+						<textarea class="form-control" ng-model="home.editPost.tags" name='Tag' id='Tag'></textarea>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info" data-dismiss="modal" ng-click="home.updateArticle()">Update</button>
+			</div>
+		</div>
+	</div>
+</div>

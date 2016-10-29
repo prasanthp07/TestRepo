@@ -1,0 +1,79 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="">
+		<h1>BlogHub Administrator</h1>
+	</div>
+	<div class="adminLink" ng-hide="admin.hideLogout"><a href="#/admin" ng-click="admin.clear()">Logout</a></div>
+</nav>
+<div class="divAdmPaginate">
+	<uib-pagination total-items="admin.totalItems" ng-model="admin.currentPage" ng-change="admin.getNext()" items-per-page="10" class="paginate"></uib-pagination>
+</div>
+<div>
+	Select: <b>
+	<input type="radio" name='status' value="All" ng-model="admin.status" ng-checked="true" ng-change="admin.load()">All
+	<input type="radio" name='status' value="pending" ng-model="admin.status" ng-change="admin.load()">Pending
+	</b>
+</div>
+<div class="divAdminTable">
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Type</th>
+				<th>User</th>
+				<th>Date</th>
+				<th>views</th>
+				<th>Comments</th>
+				<th>Status</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="article in admin.Articles">
+				<td>{{article.title}}</td>
+				<td>{{article.type}}</td>
+				<td>{{article.user.email}}</td>
+				<td>{{article.createdDate |date :"short"}}</td>
+				<td>{{article.viewCount}}</td>
+				<td>{{article.commentCount}}</td>
+				<td>{{article.status}}</td>
+				<td>
+					<button class="btn btn-primary" data-toggle="modal" data-target="#editModal" ng-click="admin.editArticle(article)" data-toggle="modal" data-target="#editModal"><span class="glyphicon glyphicon-pencil"></span></button>
+					<button class="btn btn-danger" ng-click="admin.deleteArticle(article._id)"><span class="glyphicon glyphicon-trash"></span></button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<!-- Modal Edit-->
+<div id="editModal" class="modal modal-lg fade" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Edit</h4>
+			</div>
+			<div class="modal-body">
+				<form role="form" name="frmEdit">
+					<div class="form-group">
+						<label for="Title">Title:</label>
+						<input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" ng-model="admin.Article.title" disabled>
+					</div>
+					<div class="form-group">
+						<label for="status">Status:</label>
+						<select class="form-control" name="status" ng-model="admin.Article.status">
+							<option value="pending">pending</option>
+							<option value="active">active</option>
+						</select>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info" data-dismiss="modal" ng-click="admin.updateStatus(admin.Article._id,admin.Article.status)">Update</button>
+			</div>
+		</div>
+
+	</div>
+</div>

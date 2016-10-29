@@ -1,0 +1,246 @@
+body {
+	width: 94%;
+	margin: auto;
+}
+nav {
+	height: 100px;
+	background-color: #337AB7 !important;
+	text-align: center;
+	color: white;
+}
+.footerdiv {
+	height: 50px;
+	width: 100%;
+	margin: auto;
+	background: #337AB7;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	color: white;
+	text-align: center;
+}
+.footerPad {
+	width: 100%;
+	height: 60px;
+}
+.footerdiv>div {
+	padding-top: 10px;
+}
+.boxDiv {
+	width: 450px !important;
+	margin: auto;
+	margin-top: 500px !important;
+}
+.contents {
+	width: 96% !important;
+	margin: auto !important;
+	border-radius: 5px !important;
+	margin-top: 120px !important;
+}
+.contentDiv {
+	margin-top: 350px !important;
+}
+.divSideLinks {
+	text-align: center;
+	margin-top: 50px;
+}
+.divSideLinks hr {
+	border: 1px dotted gray;
+}
+.list-group-item {
+	padding: 10px 0px;
+	border: none;
+	padding-left: 5px;
+}
+.panel-body {
+	padding: 0px;
+	text-align: left;
+}
+.panelView {
+	border: 1px solid #EBCCD1;
+}
+.panelComment {
+	border: 1px solid #D6E9C6;
+}
+.adminLink {
+	float: right;
+	padding-right: 50px;
+}
+.adminLink>a {
+	text-decoration: none;
+	color: white;
+}
+a:hover {
+	text-decoration: none !important;
+}
+.leftAlign {
+	text-align: left;
+}
+.divMail {
+	float: right;
+}
+.dateStyle {
+	color: grey;
+	font-size: small;
+}
+
+/*
+ * login & register page styles
+ * */
+
+.boxDiv button {
+	width: 100%;
+}
+.divMessage {
+	text-align: center;
+	color: #840A1F;
+	font-weight: bold;
+	padding-top: 5px;
+}
+.lnkRegister {
+	margin-left: 35%;
+}
+.divLnkRegister {
+	padding-top: 45px;
+}
+.loginTitle,
+.regTitle {
+	font-size: x-large;
+	margin-bottom: 10px;
+	text-align: center;
+}
+.divLnkHome {
+	padding-top: 10px;
+	text-align: center;
+}
+
+/*
+ * NewPost page Styles
+ * */
+
+.txtDashTag {
+	width: 89% !important;
+}
+.dashContent {
+	margin-top: 40px;
+}
+.dashBtnSubmit {
+	text-align: center;
+}
+.dashBtnSubmit>button {
+	width: 25%;
+}
+
+/*
+ * Home Page Styles
+ * */
+
+.divArticleLst {
+	width: 98% !important;
+	/*	background-color: #E9EFE6;*/
+	background-color: #EAEDF3;
+	padding-left: 15px;
+	padding-right: 10px;
+	padding-top: 10px;
+	border-bottom: 1px dotted grey;
+	/* text-align: center; */
+}
+.divArticleLst>hr {
+	border-bottom: 1px solid chocolate !important;
+}
+.homeArtOperation>button {
+	background-color: transparent;
+	border: none;
+}
+.homeArtHead>a>h2 {
+	margin-top: 0px;
+	color: #A28835;
+}
+.divSearch {
+	text-align: center;
+}
+.homeArtDiscription>span {
+	color: #673837;
+}
+.spanComment {
+	color: #C143B6;
+	padding-left: 10px;
+}
+.spanView {
+	color: #5D9A25;
+	padding-left: 10px;
+}
+.homeArtOperation {
+	color: #337AB7;
+}
+
+/*
+ * Article
+ * */
+
+.artTag>ul {
+	display: inline-flex!important;
+	list-style-type: none !important;
+	padding-left: 0px;
+}
+.artTag>ul>li {
+	padding: 0px 5px;
+	border-radius: 5px;
+	background-color: #B3D0D6;
+	margin-left: 3px;
+}
+.commentDiv {
+	padding-top: 25px;
+	padding-left: 25px;
+}
+.artImage {
+	text-align: center;
+}
+.artImage>img {
+	max-width: 450px;
+	max-height: 450px;
+}
+.artTxtArea>textarea {
+	width: 100%;
+	margin-top: 10px;
+}
+.hrComment {
+	border-bottom: 1px solid #CEE0C5;
+}
+.artHead,
+.artInfo,
+.artDiscription {
+	text-align: center;
+}
+.artDiscription>h4 {
+	color: #334431;
+	/*#334431*/
+}
+.artHead>h1 {
+	/*	color: #337ab7;*/
+	color: #A28835;
+}
+.artContent {
+	text-align: justify;
+}
+.comments>div>b {
+	color: #6A4944;
+}
+.comments>div>i {
+	color: grey;
+	font-size: small;
+}
+
+/*
+ * Admin Page styles
+ * */
+
+.divAdminTable {
+	/*	margin-top: 150px;*/
+}
+th {
+	background-color: #91ADC5 !important;
+}
+.divAdmPaginate {
+	margin-top: 120px;
+}

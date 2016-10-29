@@ -1,0 +1,32 @@
+<!-- ******************************Registration Page Template *******************************-->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<h1>BlogHub</h1>
+	</div>
+</nav>
+<div class="contentDiv boxDiv">
+	<form role="form" name="frmRegister" ng-submit="user.addUser()">
+		<div class="regTitle">
+			<span>Register</span>
+		</div>
+		<div class="form-group">
+			<label for="email">Email address:</label>
+			<input type="email" class="form-control" id="email" ng-model="user.User.email" required>
+		</div>
+		<div class="form-group">
+			<label for="pwd">Password:</label>
+			<input type="password" class="form-control" id="pwd" ng-model="user.User.password" required>
+		</div>
+		<div class="form-group">
+			<label for="cnfpwd">Confirm Password:</label>
+			<input type="password" class="form-control" id="cnfpwd" ng-model="user.confPassword" required>
+		</div>
+		<button type="submit" class="btn btn-primary" ng-disabled="frmRegister.$invalid">Register</button>
+		<div class="divLnkHome">
+			<a href="#/home">Go To Home</a>
+		</div>
+		<div class="divMessage">
+			<span ng-bind="user.message"></span>
+		</div>
+	</form>
+</div>

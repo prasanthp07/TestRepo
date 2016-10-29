@@ -1,0 +1,111 @@
+<!--**********************************Article Page template ********************************-->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<h1>BlogHub</h1>
+		<div class="divMail"><span class="glyphicon glyphicon-user" ng-bind="art.mail"></span> </div>
+	</div>
+</nav>
+<div class="contents">
+	<div class="row">
+		<div class="col-sm-2 col-lg-2">
+			<div class="divSideLinks">
+				<div ng-show="art.logout">
+					<h4><a href="#/login">Login</a></h4>
+					<hr>
+					<h4><a href="#/register">Register</a></h4>
+					<hr>
+				</div>
+				<h4><a href="#/home">Home</a></h4>
+				<hr>
+				<div ng-show="art.login">
+					<h4><a href="#/home/{{art.loggedUser}}">My Posts</a></h4>
+					<hr>
+					<h4><a href="#/new">New Post</a></h4>
+					<hr>
+					<h4><a href="" ng-click="art.logoff()">Logout</a></h4>
+					<hr>
+				</div>
+
+			</div>
+			<div>
+				<div class="panel panel-danger ">
+					<div class="panel-heading">Most Viewed</div>
+					<div class="panel-body panelView">
+						<ul class="list-group">
+							<li class="list-group-item" ng-repeat="view in art.topViews"><a href="#/articles/{{view._id}}">{{view.title}}</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="panel panel-success">
+					<div class="panel-heading">Recently Posted</div>
+					<div class="panel-body panelComment">
+						<ul class="list-group">
+							<li class="list-group-item" ng-repeat="view in art.recent"><a href="#/articles/{{view._id}}">{{view.title}}</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-10 col-lg-10">
+			<div class="divArticleLst">
+				<div class="artHead">
+					<h1>{{art.article.title}}</h1>
+				</div>
+				<div class="artInfo">
+					<span class="spanComment"> Comments</span> <span class="badge">{{art.article.commentCount}}</span><span class="spanView">
+					 Views </span><span class="badge">{{art.article.viewCount}}</span>
+				</div>
+				<div class="artDiscription">
+					<h4>{{art.article.discription}}
+					</h4>
+				</div>
+				<br>
+				<div class="artImage" ng-show="art.imgVisible">
+					<img src="/{{art.article.imageUrl}}" alt="">
+				</div>
+				<br>
+				<div class="artContent">
+					<span ng-bind-html="art.article.content">
+					</span>
+				</div>
+				<br>
+				<div class="artDate">
+					<span><i>Posted by </i> <strong>{{art.article.user.email}} </strong>on <i class="dateStyle">{{art.article.createdDate |date: "medium"}} </i>  </span>
+				</div>
+				<br>
+				<div class="artTag">
+					<b>Tags :</b>
+					<ul>
+						<li ng-repeat="tag in art.article.tags"><a href="#/articles/tags/{{tag}}">{{tag}}</a> </li>
+					</ul>
+				</div>
+				<br>
+				<div class="artTxtArea">
+					<textarea rows="3" placeholder="Post your comment here.. " ng-model="art.comment"></textarea>
+				</div>
+				<div class="artComment">
+					<button type="button" class="btn btn-info" ng-click="art.postComment()">Post Comment</button>
+				</div>
+				<br>
+			</div>
+			<div>
+				<!-- <button type="button" data-toggle="collapse" data-target="#comment" class="btn btn-info" ng-click="art.getComments()">Comments</button> -->
+				<h2>Comments</h2>
+			</div>
+			<div id="comment" class="commentDiv">
+				<div class="comments" ng-repeat="comment in art.Comments">
+					<div>
+						<b><span class="glyphicon glyphicon-user"></span>: {{comment.user.email}} </b>on <i>{{comment.createDate | date :"medium"}}</i>
+						<br>
+						<span>{{comment.text}}</span>
+						<hr class="hrComment">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

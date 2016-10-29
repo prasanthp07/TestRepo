@@ -1,0 +1,70 @@
+<!-- ****************************** NewPost Page Template ********************************-->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<h1>BlogHub</h1>
+		<div class="divMail"><span class="glyphicon glyphicon-user" ng-bind="np.mail"></span> </div>
+	</div>
+</nav>
+<div class="contents">
+	<div class="row">
+		<div class="col-sm-2 col-lg-2">
+			<div class="divSideLinks">
+				<div ng-show="np.logout">
+					<h4><a href="#/login">Login</a></h4>
+					<hr>
+					<h4><a href="#/register">Register</a></h4>
+					<hr>
+				</div>
+				<h4><a href="#/home">Home</a></h4>
+				<hr>
+				<div ng-show="np.login">
+					<h4><a href="#/home/{{userId}}">Mypost</a></h4>
+					<hr>
+					<h4><a href="#/new">New Post</a></h4>
+					<hr>
+					<h4><a href="#/home" ng-click="np.logoff()">Logout</a></h4>
+					<hr>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-10 col-lg-10">
+			<div class="dashContent">
+
+				<form role="form" name="frmPost" ng-submit="np.postArticle()">
+					<div class="form-group">
+						Select : <b><input type="radio" value="Text" name="type" ng-model="np.post.type" ng-click="np.setPost()">Text Post
+					<input type="radio" value="Image" name="type" ng-model="np.post.type" ng-checked="true" ng-click="np.setPost()">Image Post
+				</div>
+					<div class="form-group">
+						<label for="image">Select Image:</label>
+						<input type="file" class="form-control" id="image"  name="image" file-model="np.post.image" ng-disabled="np.imgDisable">
+					</div>
+					<div class="form-group">
+						<label for="Title">Title:</label>
+						<input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" ng-model="np.post.title" required>
+					</div>
+					<div class="form-group">
+						<label for="discription">Short Discription:</label>
+						<input type="text" class="form-control" id="discription" name="discription" placeholder="Enter Text here" ng-model="np.post.discription" required>
+					</div>
+						<div class="form-group">
+						<label for="content">Content:</label>						
+						<textarea class="form-control" rows="5" id="content" name="content" ng-model="np.post.content" placeholder="Enter the detailed contents here" ng-required="np.contentRequired" ></textarea>
+					</div>
+					<div class="form-group">					
+						<label for="tag">Add Tag:</label>
+						<input type="text" class="txtDashTag" id="tag" name="tag" ng-model="np.tagName" placeholder="Enter Tag name"><button type="button" ng-click="np.addTag()"><span class="glyphicon glyphicon-plus"></span></button>						
+					</div>	
+					<div class="form-group">								
+						<textarea class="form-control" rows="5" id="tags" name="tags" ng-disabled="true" ng-model="np.addedTag"></textarea>
+					</div>	
+					<div class="dashBtnSubmit">				
+					<button type="submit" class="btn btn-info" ng-disabled="frmPost.$invalid">Submit</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>

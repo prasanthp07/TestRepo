@@ -1,0 +1,35 @@
+<!--********************************** Administrator Index **********************************-->
+<!DOCTYPE html>
+<html lang="en" ng-app='adminApp'>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Bloggers Hub</title>
+	<meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../web/assets/css/styles.css">
+</head>
+
+<body>
+	<div ng-view>
+	</div>
+	<div class="footerdiv">
+		<div>
+			<span>&nbsp;Copyright © 1996-2016, Robosoft Technologies Pvt. Ltd. All rights reserved.</span>
+		</div>
+	</div>
+
+	<!--  *********************** General Scripts   ***************************** -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+	<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+
+	<!--  ***************** Scripts for controllers & factories ************************** -->
+	<script src="adminApp.js"></script>
+	<script src="/admin/factories/adminFactory.js"></script>
+	<script src="/admin/controllers/adminController.js"></script>
+</body>
+
+</html>
