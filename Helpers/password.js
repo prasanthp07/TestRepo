@@ -11,7 +11,7 @@ module.exports.verify = verify;
 
 
 /*
- * function to ccompute hash password
+ * function to compute hash password
  * @params : password
  * @params : salt
  * @params: callback
